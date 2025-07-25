@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CS2全图道具教学 - 提升你的游戏技巧</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  
+  <!-- Tailwind配置 -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#165DFF',
+            secondary: '#36CBCB',
+            dark: '#111827',
+            light: '#F3F4F6',
+            accent: '#FF7D00',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      .hover-scale {
+        transition: transform 0.3s ease;
+      }
+      .hover-scale:hover {
+        transform: scale(1.03);
+      }
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-light min-h-screen flex flex-col">
+  <!-- 导航栏 -->
+  <header class="bg-dark/80 backdrop-blur-md border-b border-gray-800 sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center space-x-2">
+        <i class="fa fa-gamepad text-accent text-2xl"></i>
+        <h1 class="text-xl md:text-2xl font-bold bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent">CS2 道具教学</h1>
+      </div>
+      
+      <div class="hidden md:flex items-center space-x-6">
+        <a href="#" class="text-gray-300 hover:text-white transition-colors duration-200 flex items-center">
+          <i class="fa fa-home mr-2"></i>首页
+        </a>
+        <a href="#" class="text-gray-300 hover:text-white transition-colors duration-200 flex items-center">
+          <i class="fa fa-user mr-2"></i>关于我们
+        </a>
+      </div>
+      
+      <div class="flex items-center space-x-4">
+        <div class="relative hidden md:block">
+          <input type="text" placeholder="搜索道具或地图..." class="bg-gray-800 rounded-full py-1.5 px-4 pl-10 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 w-48 lg:w-64 transition-all duration-300">
+          <i class="fa fa-search absolute left-3.5 top-2 text-gray-400"></i>
+        </div>
+        <button class="md:hidden text-gray-300 hover:text-white">
+          <i class="fa fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 主要内容 -->
+  <main class="flex-grow flex flex-col md:flex-row container mx-auto w-full max-w-7xl px-4 py-6">
+    <!-- 左侧地图导航 -->
+    <aside class="w-full md:w-64 lg:w-72 mb-6 md:mb-0 md:pr-6 flex flex-col">
+      <div class="bg-dark rounded-xl p-4 shadow-lg border border-gray-800 flex-grow">
+        <div class="mb-4">
+          <h2 class="text-lg font-bold mb-3 flex items-center">
+            <i class="fa fa-map-o text-accent mr-2"></i>选择地图
+          </h2>
+        </div>
+        
+        <div class="space-y-1 overflow-y-auto scrollbar-hide max-h-[calc(100vh-220px)]">
+          <!-- 地图列表 -->
+          <div class="map-group">
+            <button class="w-full flex items-center justify-between bg-gray-800 hover:bg-gray-700 text-left p-3 rounded-lg transition-colors duration-200 mb-1 map-toggle">
+              <div class="flex items-center">
+                <img src="https://img1.ali213.net/glpic/2024/12/10/584_2024121021238402.webp" alt="de_dust2地图缩略图" class="w-6 h-6 rounded mr-3">
+                <span class="font-medium">dust2</span>
+              </div>
+              <i class="fa fa-chevron-down text-xs transition-transform duration-200"></i>
+            </button>
+            <div class="pl-3 py-1 space-y-1 map-content hidden">
+              <a href="#" class="block p-2 rounded hover:bg-gray-700 text-sm flex items-center video-link" data-map="dust2" data-area="A进攻">
+                <i class="fa fa-play-circle-o text-primary mr-2"></i>A区进攻道具
+              </a>
+              <a href="#" class="block p-2 rounded hover:bg-gray-700 text-sm flex items-center video-link" data-map="dust2" data-area="A防守">
+                <i class="fa fa-shield text-secondary mr-2"></i>A区防守道具
+              </a>
+              <a href="#" class="block p-2 rounded hover:bg-gray-700 text-sm flex items-center video-link" data-map="dust2" data-area="B进攻">
+                <i class="fa fa-play-circle-o text-primary mr-2"></i>B区进攻道具
+              </a>
+              <a href="#" class="block p-2 rounded hover:bg-gray-700 text-sm flex items-center video-link" data-map="dust2" data-area="B防守">
+                <i class="fa fa-shield text-secondary mr-2"></i>B区防守道具
+              </a>
+              <a href="#" class="block p-2 rounded hover:bg-gray-700 text-sm flex items-center video-link" data-map="dust2" data-area="其他">
+                <i class="fa fa-plus-circle text-accent mr-2"></i>其他道具教学
+              </a>
+            </div>
+          </div>
+          
+          <div class="map-group">
+            <button class="w-full flex items-center justify-between bg-gray-800 hover:bg-gray-700 text-left p-3 rounded-lg transition-colors duration-200 mb-1 map-toggle">
+              <div class="flex items-center">
+                <img src="https://img1.ali213.net/glpic/2024/12/10/584_2024121022047401.jpg" alt="de_mirage地图缩略图" class="w-6 h-6 rounded mr-3">
+                <span class="font-medium">mirage</span>
+              </div>
+              <i class="fa fa-chevron-down text-xs transition-transform duration-200"></i>
+            </button>
+            <div class="pl-3 py-1 space-y-1 map-content hidden">
+              <a href="#" class="block p-2 rounded hover:bg-gray-700 text-sm flex items-center video-link" data-map="mirage" data-area="A进攻">
+                <i class="fa fa-play-circle-o text-primary mr-2"></i>A区进攻道具
+              </a>
+              <a href="#" class="block p-2 rounded hover:bg-gray-700 text-sm flex items-center video-link" data-map="mirage" data-area="A防守">
+                <i class="fa fa-shield text-secondary mr-2"></i>A区防守道具
+              </a>
+              <a href="#" class="block p-2 rounded hover:bg-gray-700 text-sm flex items-center video-link" data-map="mirage" data-area="B进攻">
+                <i class="fa fa-play-circle-o text-primary mr-2"></i>B区进攻道具
+              </a>
+              <a href="#" class="block p-2 rounded hover:bg-gray-700 text-sm flex items-center video-link" data-map="mirage" data-area="B防守">
+                <i class="fa fa-shield text-secondary mr-2"></i>B区防守道具
+              </a>
+              <a href="#" class="block p-2 rounded hover:bg-gray-700 text-sm flex items-center video-link" data-map="mirage" data-area="其他">
+                <i class="fa fa-plus-circle text-accent mr-2"></i>其他道具教学
+              </a>
+            </div>
+          </div>
+          
+          <div class="map-group">
+            <button class="w-full flex items-center justify-between bg-gray-800 hover:bg-gray-700 text-left p-3 rounded-lg transition-colors duration-200 mb-1 map-toggle">
+              <div class="flex items-center">
+                <img src="https://img1.ali213.net/glpic/2024/12/10/584_2024121022001241.webp" alt="de_inferno地图缩略图" class="w-6 h-6 rounded mr-3">
+                <span class="font-medium">inferno</span>
+              </div>
+              <i class="fa fa-chevron-down text-xs transition-transform duration-200"></i>
+            </button>
+            <div class="pl-3 py-1 space-y-1 map-content hidden">
+              <a href="#" class="block p-2 rounded hover:bg-gray-700 text-sm flex items-center video-link" data-map="inferno" data-area="A进攻">
+                <i class="fa fa-play-circle-o text-primary mr-2"></i>A区进攻道具
+              </a>
+              <a href="#" class="block p-2 rounded hover:bg-gray-700 text-sm flex items-center video-link" data-map="inferno" data-area="A防守">
+                <i class="fa fa-shield text-secondary mr-2"></i>A区防守道具
+              </a>
+              <a href="#" class="block p-2 rounded hover:bg-gray-700 text-sm flex items-center video-link" data-map="inferno" data-area="B进攻">
+                <i class="fa fa-play-circle-o text-primary mr-2"></i>B区进攻道具
+              </a>
+              <a href="#" class="block p-2 rounded hover:bg-gray-700 text-sm flex items-center video-link" data-map="inferno" data-area="B防守">
+                <i class="fa fa-shield text-secondary mr-2"></i>B区防守道具
+              </a>
+              <a href="#" class="block p-2 rounded hover:bg-gray-700 text-sm flex items-center video-link" data-map="inferno" data-area="其他">
+                <i class="fa fa-plus-circle text-accent mr-2"></i>其他道具教学
+              </a>
+            </div>
+          </div>
+          
+          <div class="map-group">
+            <button class="w-full flex items-center justify-between bg-gray-800 hover:bg-gray-700 text-left p-3 rounded-lg transition-colors duration-200 mb-1 map-toggle">
+              <div class="flex items-center">
+                <img src="https://img1.ali213.net/glpic/2024/12/10/584_2024121022927754.png" alt="de_nuke地图缩略图" class="w-6 h-6 rounded mr-3">
+                <span class="font-medium">nuke</span>
+              </div>
+              <i class="fa fa-chevron-down text-xs transition-transform duration-200"></i>
+            </button>
+            <div class="pl-3 py-1 space-y-1 map-content hidden">
+              <a href="#" class="block p-2 rounded hover:bg-gray-700 text-sm flex items-center video-link" data-map="nuke" data-area="A进攻">
+                <i class="fa fa-play-circle-o text-primary mr-2"></i>A区进攻道具
+              </a>
+              <a href="#" class="block p-2 rounded hover:bg-gray-700 text-sm flex items-center video-link" data-map="nuke" data-area="A防守">
+                <i class="fa fa-shield text-secondary mr-2"></i>A区防守道具
+              </a>
+              <a href="#" class="block p-2 rounded hover:bg-gray-700 text-sm flex items-center video-link" data-map="nuke" data-area="B进攻">
+                <i class="fa fa-play-circle-o text-primary mr-2"></i>B区进攻道具
+              </a>
+              <a href="#" class="block p-2 rounded hover:bg-gray-700 text-sm flex items-center video-link" data-map="nuke" data-area="B防守">
+                <i class="fa fa-shield text-secondary mr-2"></i>B区防守道具
+              </a>
+              <a href="#" class="block p-2 rounded hover:bg-gray-700 text-sm flex items-center video-link" data-map="nuke" data-area="其他">
+                <i class="fa fa-plus-circle text-accent mr-2"></i>其他道具教学
+              </a>
+            </div>
+          </div>
+          
+          <div class="map-group">
+            <button class="w-full flex items-center justify-between bg-gray-800 hover:bg-gray-700 text-left p-3 rounded-lg transition-colors duration-200 mb-1 map-toggle">
+              <div class="flex items-center">
+                <img src="https://img1.ali213.net/glpic/2024/12/10/584_2024121022436879.png" alt="de_overpass地图缩略图" class="w-6 h-6 rounded mr-3">
+                <span class="font-medium">overpass</span>
+              </div>
+              <i class="fa fa-chevron-down text-xs transition-transform duration-200"></i>
+            </button>
+            <div class="pl-3 py-1 space-y-1 map-content hidden">
+              <a href="#" class="block p-2 rounded hover:bg-gray-700 text-sm flex items-center video-link" data-map="overpass" data-area="A进攻">
+                <i class="fa fa-play-circle-o text-primary mr-2"></i>A区进攻道具
+              </a>
+              <a href="#" class="block p-2 rounded hover:bg-gray-700 text-sm flex items-center video-link" data-map="overpass" data-area="A防守">
+                <i class="fa fa-shield text-secondary mr-2"></i>A区防守道具
+              </a>
+              <a href="#" class="block p-2 rounded hover:bg-gray-700 text-sm flex items-center video-link" data-map="overpass" data-area="B进攻">
+                <i class="fa fa-play-circle-o text-primary mr-2"></i>B区进攻道具
+              </a>
+              <a href="#" class="block p-2 rounded hover:bg-gray-700 text-sm flex items-center video-link" data-map="overpass" data-area="B防守">
+                <i class="fa fa-shield text-secondary mr-2"></i>B区防守道具
+              </a>
+              <a href="#" class="block p-2 rounded hover:bg-gray-700 text-sm flex items-center video-link" data-map="overpass" data-area="其他">
+                <i class="fa fa-plus-circle text-accent mr-2"></i>其他道具教学
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+    
+    <!-- 右侧视频内容 -->
+    <section class="flex-grow">
+      <div class="bg-dark rounded-xl p-6 shadow-lg border border-gray-800 mb-6">
+        <div id="video-header" class="mb-6">
+          <h2 class="text-2xl font-bold mb-2 text-white">CS2 道具指南
+          </h2>
+          <p class="text-gray-400">选择左侧地图和道具类别,提升你的游戏技巧</p>
+        </div>
+        
+        <div id="video-container" class="aspect-video bg-gray-900 rounded-lg overflow-hidden relative mb-6 flex items-center justify-center">
+          <div class="text-center p-8">
+            <i class="fa fa-film text-5xl text-gray-700 mb-4"></i>
+            <h3 class="text-xl text-gray-500">请选择一个视频开始学习</h3>
+            <p class="text-gray-500 mt-2">从左侧选择地图和相应的道具类别</p>
+          </div>
+          <!-- 视频将在这里加载 -->
+        </div>
+        
+        <div id="video-info" class="mb-6">
+          <div class="flex items-center text-sm text-gray-400 mb-3">
+            <span id="video-map" class="bg-gray-800 px-2 py-0.5 rounded mr-2">地图：未选择</span>
+            <span id="video-area" class="bg-gray-800 px-2 py-0.5 rounded">区域：未选择</span>
+          </div>
+        </div>
+        
+        <div class="flex space-x-3">
+          <button id="bilibili-btn" class="hidden px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors duration-200 flex items-center">
+            <i class="fa fa-play-circle mr-2"></i>在哔哩哔哩观看
+          </button>
+          <button id="douyin-btn" class="hidden px-4 py-2 bg-black hover:bg-gray-900 text-white rounded-lg transition-colors duration-200 flex items-center">
+            <i class="fa fa-play-circle mr-2"></i>在抖音观看
+          </button>
+        </div>
+      </div>
+      
+      
+    </section>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="bg-dark/80 backdrop-blur-md border-t border-gray-800 py-6 mt-8">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-4 md:mb-0">
+          <div class="flex items-center space-x-2">
+            <i class="fa fa-gamepad text-accent text-xl"></i>
+            <span class="text-lg font-bold bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent">CS2 道具教学</span>
+          </div>
+          <p class="text-gray-400 text-sm mt-1">珍惜每次.p或开局成为导播后的时间</p>
+        </div>
+        
+        <div class="flex space-x-6 mb-4 md:mb-0">
+          <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">
+            <i class="fa fa-github text-xl"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">
+            <i class="fa fa-twitter text-xl"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">
+            <i class="fa fa-youtube-play text-xl"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">
+            <i class="fa fa-discord text-xl"></i>
+          </a>
+        </div>
+        
+        <div class="text-gray-500 text-sm">
+          &copy; CS2-道具教学中心. m1hu保留所有权利.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // 地图折叠/展开功能
+    document.querySelectorAll('.map-toggle').forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        const content = toggle.nextElementSibling;
+        const icon = toggle.querySelector('i.fa-chevron-down');
+        
+        // 关闭其他所有地图内容
+        document.querySelectorAll('.map-content').forEach(item => {
+          if (item !== content) {
+            item.classList.add('hidden');
+            const itemIcon = item.previousElementSibling.querySelector('i.fa-chevron-down');
+            itemIcon.style.transform = 'rotate(0deg)';
+          }
+        });
+        
+        // 切换当前地图内容
+        content.classList.toggle('hidden');
+        if (content.classList.contains('hidden')) {
+          icon.style.transform = 'rotate(0deg)';
+        } else {
+          icon.style.transform = 'rotate(180deg)';
+        }
+      });
+    });
+    
+    // 视频数据
+    const videos = {
+      'dust2': {
+        'A进攻': {
+          title: 'dust2 A区进攻闪光弹教学',
+          description: '本视频详细讲解了dust2地图A区的各种进攻闪光弹投掷技巧,包括近点、远点和中路的不同战术选择。',
+          bilibiliUrl: 'https://www.bilibili.com/video/BV123456789',
+          douyinUrl: 'https://www.douyin.com/video/123456789'
+        },
+        'A防守': {
+          title: 'dust2 A区防守烟雾弹教学',
+          description: '学习如何使用烟雾弹有效防守dust2地图A区,包括封住关键进攻路线和保护包点的技巧。',
+          bilibiliUrl: 'https://www.bilibili.com/video/BV987654321',
+          douyinUrl: 'https://www.douyin.com/video/987654321'
+        },
+        'B进攻': {
+          title: 'dust2 B区进攻道具组合教学',
+          description: '本视频展示了dust2地图B区的最佳进攻道具组合,包括闪光、烟雾和燃烧弹的协同使用。',
+          bilibiliUrl: 'https://www.bilibili.com/video/BV456789123',
+          douyinUrl: 'https://www.douyin.com/video/456789123'
+        },
+        'B防守': {
+          title: 'dust2 B区防守火和闪教学',
+          description: '掌握dust2地图B区的防守火和闪光弹投掷位置,有效阻止敌人进攻。',
+          bilibiliUrl: 'https://www.bilibili.com/video/BV789123456',
+          douyinUrl: 'https://www.douyin.com/video/789123456'
+        },
+        '其他': {
+          title: 'dust2 中路和香蕉道道具教学',
+          description: '学习dust2地图中路和香蕉道的关键道具使用技巧,帮助你在这些区域取得优势。',
+          bilibiliUrl: 'https://www.bilibili.com/video/BV321987654',
+          douyinUrl: 'https://www.douyin.com/video/321987654'
+        }
+      },
+      'mirage': {
+        'A进攻': {
+          title: 'mirage A区三箱跳台闪光教学',
+          description: '详细讲解mirage地图A区三箱跳台的闪光弹投掷技巧,帮助CT防守和T进攻。',
+          bilibiliUrl: 'https://www.bilibili.com/video/BV654321987',
+          douyinUrl: 'https://www.douyin.com/video/654321987'
+        },
+        'A防守': {
+          title: 'mirage A区防守道具大全',
+          description: 'mirage地图A区所有防守道具的完整教学,包括闪光、烟雾和燃烧弹的最佳投掷位置。',
+          bilibiliUrl: 'https://www.bilibili.com/video/BV987321654',
+          douyinUrl: 'https://www.douyin.com/video/987321654'
+        },
+        'B进攻': {
+          title: 'mirage B区快速进攻烟雾教学',
+          description: '学习如何快速投掷mirage地图B区的进攻烟雾,为你的团队创造进攻机会。',
+          bilibiliUrl: 'https://www.bilibili.com/video/BV321654987',
+          douyinUrl: 'https://www.douyin.com/video/321654987'
+        },
+        'B防守': {
+          title: 'mirage B区1vX防守道具教学',
+          description: '掌握mirage地图B区1v多情况下的防守道具使用技巧,提高生存几率。',
+          bilibiliUrl: 'https://www.bilibili.com/video/BV789456123',
+          douyinUrl: 'https://www.douyin.com/video/789456123'
+        },
+        '其他': {
+          title: 'mirage 长厅和链接道具教学',
+          description: 'mirage地图长厅和链接区域的关键道具使用技巧,帮助你控制这些重要区域。',
+          bilibiliUrl: 'https://www.bilibili.com/video/BV123987456',
+          douyinUrl: 'https://www.douyin.com/video/123987456'
+        }
+      },
+      'inferno': {
+        'A进攻': {
+          title: 'inferno A区二楼跳台闪光教学',
+          description: 'inferno地图A区二楼跳台的闪光弹投掷技巧,帮助T进攻和CT防守这个关键位置。',
+          bilibiliUrl: 'https://www.bilibili.com/video/BV456123789',
+          douyinUrl: 'https://www.douyin.com/video/456123789'
+        },
+        'A防守': {
+          title: 'inferno A区防守燃烧弹教学',
+          description: '学习如何使用燃烧弹有效防守inferno地图A区,阻止敌人推进和包点控制。',
+          bilibiliUrl: 'https://www.bilibili.com/video/BV789654123',
+          douyinUrl: 'https://www.douyin.com/video/789654123'
+        },
+        'B进攻': {
+          title: 'inferno B区双架烟雾教学',
+          description: 'inferno地图B区双架位置的烟雾弹投掷技巧,帮助T同时进攻两个方向。',
+          bilibiliUrl: 'https://www.bilibili.com/video/BV321789456',
+          douyinUrl: 'https://www.douyin.com/video/321789456'
+        },
+        'B防守': {
+          title: 'inferno B区防守闪光教学',
+          description: '掌握inferno地图B区的防守闪光弹投掷位置,有效打乱敌人进攻节奏。',
+          bilibiliUrl: 'https://www.bilibili.com/video/BV654321789',
+          douyinUrl: 'https://www.douyin.com/video/654321789'
+        },
+        '其他': {
+          title: 'inferno 中路和下水道道具教学',
+          description: 'inferno地图中路和下水道区域的关键道具使用技巧,帮助你控制这些战略要地。',
+          bilibiliUrl: 'https://www.bilibili.com/video/BV987123654',
+          douyinUrl: 'https://www.douyin.com/video/987123654'
+        }
+      }
+    };
+    
+    // 视频链接点击事件
+    document.querySelectorAll('.video-link').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const map = link.getAttribute('data-map');
+        const area = link.getAttribute('data-area');
+        
+        // 更新视频信息
+        if (videos[map] && videos[map][area]) {
+          const videoData = videos[map][area];
+          
+          // 显示视频标题和描述
+          document.getElementById('video-title').textContent = videoData.title;
+          document.getElementById('video-map').textContent = `地图：${map}`;
+          document.getElementById('video-area').textContent = `区域：${area}`;
+          document.getElementById('video-description').textContent = videoData.description;
+          
+          // 显示B站和抖音按钮
+          document.getElementById('bilibili-btn').classList.remove('hidden');
+          document.getElementById('douyin-btn').classList.remove('hidden');
+          
+          // 设置按钮链接
+          document.getElementById('bilibili-btn').setAttribute('onclick', `window.open('${videoData.bilibiliUrl}', '_blank')`);
+          document.getElementById('douyin-btn').setAttribute('onclick', `window.open('${videoData.douyinUrl}', '_blank')`);
+          
+          // 显示视频预览图
+          const videoContainer = document.getElementById('video-container');
+          videoContainer.innerHTML = `
+            <img src="https://picsum.photos/seed/${map}-${area}/800/450" alt="${videoData.title}" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+              <button class="bg-primary hover:bg-primary/90 text-white rounded-full w-16 h-16 flex items-center justify-center transform transition-transform hover:scale-110">
+                <i class="fa fa-play text-2xl"></i>
+              </button>
+            </div>
+          `;
+          
+          // 添加视频点击事件
+          const playButton = videoContainer.querySelector('button');
+          playButton.addEventListener('click', () => {
+            window.open(videoData.bilibiliUrl, '_blank');
+          });
+        }
+      });
+    });
+    
+    // 平滑滚动
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+    

@@ -1,2 +1,2 @@
 # props-art
-Counter-Striker 2道具教学网站搭建
+Counter-Striker 2 道具教学网站搭建
